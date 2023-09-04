@@ -1,4 +1,6 @@
-import { db } from "./../index";
+import * as admin from "firebase-admin";
+
+const db = admin.firestore();
 
 export const getOrderDetails = async (orderId: string) => {
   const orderRef = db.collection("orders").doc(orderId);

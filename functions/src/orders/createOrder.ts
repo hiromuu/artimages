@@ -1,6 +1,7 @@
-import * as admin from "firebase-admin";
 import { generateImage } from "../openai/generateImage";
-import { db } from "./../index";
+import * as admin from "firebase-admin";
+
+const db = admin.firestore();
 
 // dataとcontextの型を定義
 interface Data {

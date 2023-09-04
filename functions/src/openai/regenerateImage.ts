@@ -1,5 +1,7 @@
 import { generateImage } from "./generateImage";
-import { db } from "./../index";
+import * as admin from "firebase-admin";
+
+const db = admin.firestore();
 
 export const regenerateImage = async (
   orderId: string,
