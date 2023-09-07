@@ -1,11 +1,19 @@
-import * as functions from "firebase-functions";
-import { createOrder } from "./orders/createOrder";
-import { getUserInfo } from "./users/getUserInfo";
-import { getStylesAndThemes } from "./stylesAndThemes/getStylesAndThemes";
-import * as admin from "firebase-admin";
+/**
+ * Import function triggers from their respective submodules:
+ *
+ * import {onCall} from "firebase-functions/v2/https";
+ * import {onDocumentWritten} from "firebase-functions/v2/firestore";
+ *
+ * See a full list of supported triggers at https://firebase.google.com/docs/functions
+ */
 
-admin.initializeApp(); // ここで初期化
+import {onRequest} from "firebase-functions/v2/https";
+import * as logger from "firebase-functions/logger";
 
-exports.createOrder = functions.https.onCall(createOrder);
-exports.getUserInfo = functions.https.onCall(getUserInfo);
-exports.getStylesAndThemes = functions.https.onCall(getStylesAndThemes);
+// Start writing functions
+// https://firebase.google.com/docs/functions/typescript
+
+// export const helloWorld = onRequest((request, response) => {
+//   logger.info("Hello logs!", {structuredData: true});
+//   response.send("Hello from Firebase!");
+// });
